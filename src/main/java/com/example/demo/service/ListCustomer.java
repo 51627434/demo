@@ -18,8 +18,8 @@ public class ListCustomer {
         list.add(c);
 
          c = new Customer();
-        c.setCustomerCode("0002");
-        c.setCustomerName("yjy02");
+        c.setCustomerCode("00023");
+        c.setCustomerName("yjy023");
         list.add(c);
 
 

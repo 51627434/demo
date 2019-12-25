@@ -1,19 +1,22 @@
 package com.example.demo.controller;
 
-import com.example.demo.dao.CustomerDao;
+
 import com.example.demo.pojo.Customer;
 import com.example.demo.pojo.UserEntity;
+
 import com.example.demo.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class Hello {
+    @Autowired
+    private CustomerService customerService;
     @GetMapping(value = "/hello")
     public String testHello(Model model) {
         // UserEntity userEntity = getCurrentUser(req);
@@ -29,14 +32,8 @@ public class Hello {
 
     @GetMapping(value = "/customer")
     public String testCustomer(Model model) {
-        // UserEntity userEntity = getCurrentUser(req);
-        CustomerService customerService = new CustomerService();
-        List<Customer> list =  customerService.selectAll();
 
-
-        System.out.println(list.size());
-
-        model.addAttribute("list", list);
+        model.addAttribute("list", customerService.selectAll());
 
         return "customer";
     }
