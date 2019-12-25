@@ -11,12 +11,12 @@ import java.util.List;
 public class CustomerService {
 
    @Autowired
-   private ListCustomer listCustomer;
+   private CustomerDao customerDao;
 
     public List<Customer> selectAll() {
         System.out.println("进入service");
-        System.out.println("customerDao："+listCustomer.toString());
-        return listCustomer.selectAll();
+        System.out.println("customerDao："+customerDao.toString());
+        return customerDao.selectAll();
     }
 
 }
