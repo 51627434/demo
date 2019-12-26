@@ -1,22 +1,26 @@
 package com.example.demo.controller;
 
 
-import com.example.demo.pojo.Customer;
+import com.example.demo.pojo.Channel;
 import com.example.demo.pojo.UserEntity;
 
-import com.example.demo.service.CustomerService;
+import com.example.demo.service.ChannelService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class Hello {
+    private static final Logger LOG = LoggerFactory.getLogger(Hello.class);
     @Autowired
-    private CustomerService customerService;
+    private ChannelService channelService;
+
+
     @GetMapping(value = "/hello")
     public String testHello(Model model) {
         // UserEntity userEntity = getCurrentUser(req);
@@ -30,11 +34,12 @@ public class Hello {
         return "hello";
     }
 
-    @GetMapping(value = "/customer")
-    public String testCustomer(Model model) {
+    @GetMapping(value = "/channel")
+    public String testChannel(Model model) {
 
-        model.addAttribute("list", customerService.selectAll());
+        model.addAttribute("list", channelService.selectAll());
 
-        return "customer";
+        LOG.info("channel正在处理...");
+        return "channel";
     }
 }

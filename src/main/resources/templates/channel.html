@@ -7,12 +7,12 @@
 <body>
 <table>
     <tr>
-        <td>客户编号</td>
+        <td>频道编号</td>
         <td>客户姓名</td>
     </tr>
-    <tr th:each="customer : ${list}">
-        <td th:text="${customer.customerCode}"></td>
-        <td th:text="${customer.customerName}"></td>
+    <tr th:each="channel : ${list}">
+        <td th:text="${channel.channelCode}"></td>
+        <td th:text="${channel.channelInfo}"></td>
     </tr>
 </table>
 </body>
